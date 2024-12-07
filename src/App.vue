@@ -11,7 +11,12 @@
     <button class="btn" @click="change">Изменить</button>
   </div>
 
-  <Framvorkinfo :name="name" :version="version"/>
+  <Framvorkinfo 
+  :name="name"
+  :version="version"
+  @change-version="changeVersion"
+  />
+
 
  </div>
  
@@ -56,6 +61,12 @@ version.value = 150
  //framework.version = 42
  }
 
+function changeVersion(number) {
+
+  version.value = number
+
+}
+
 return {
   name, 
   version,
@@ -66,7 +77,8 @@ return {
 change: changeInfo,
 //doubleVersion,
 //textInput,
-ferstName
+ferstName,
+changeVersion
 }
 },
 components: { Framvorkinfo },
