@@ -1,34 +1,52 @@
 <template>
-  <div class="card">
-    <h2>Переиспользование</h2>
-    <button class="btn-primary">Показать сообщение</button>
-    <button class="btn" @click="navigate">перейти на главную</button>
-  </div>
-</template>
-
-<script>
-import { useRouter, useRoute } from 'vue-router';
-export default {
-  setup() {
-    const router = useRouter();
-    const route = useRoute();
-
-    console.log(route.path)
-
-
-const navigate = () => {
-    router.push('/')
-}
-
-    return {
-        navigate,
-
-
-    };
-  },
+    <app-alert 
+    title="Работаем с Composition API"
+     type="primary"
+      v-if="alert"
+      @close="close"
+      ></app-alert>
   
-};
-</script>
+    <div class="card">
+      <h2>Переиспользование</h2>
+      <button class="btn-primary" @click="toggle">{{ alert ? 'скрыть' : 'показать' }} сообщение</button>
+      <button class="btn" @click="navigate">перейти на главную</button>
+    </div>
+  </template>
+  
+
+  <script>
+  import { ref } from 'vue';
+  import { useRouter, useRoute } from 'vue-router';
+  import AppAlert from './AppAlert.vue';
+  
+  export default {
+    setup() {
+      const alert = ref(false);
+      const router = useRouter();
+      const route = useRoute();
+  
+      const navigate = () => {
+        router.push('/');
+      };
+  
+      const toggle = () => {
+        alert.value = !alert.value;
+      };
+  
+      const close = () => {
+        alert.value = false;
+      }
+      return {
+        alert,
+        navigate,
+        toggle,
+        close
+      };
+    },
+    components: { AppAlert },
+  };
+  </script>
+  
 
 <style scoped>
 .card {
