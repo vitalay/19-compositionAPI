@@ -15,13 +15,16 @@
   
 
   <script>
-  import { ref } from 'vue';
+ 
   import { useRouter, useRoute } from 'vue-router';
   import AppAlert from './AppAlert.vue';
+import { useAlert } from '@/use/alert';
   
   export default {
     setup() {
-      const alert = ref(false);
+        useAlert();
+      const { alert, toggle, close } = useAlert();
+      
       const router = useRouter();
       const route = useRoute();
   
@@ -29,13 +32,7 @@
         router.push('/');
       };
   
-      const toggle = () => {
-        alert.value = !alert.value;
-      };
-  
-      const close = () => {
-        alert.value = false;
-      }
+
       return {
         alert,
         navigate,
