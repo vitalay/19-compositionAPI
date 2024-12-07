@@ -4,8 +4,8 @@
     <h1>Vue Composition API</h1>
     <small>data, computed, methods, watch </small>
     <hr>
-    <p>Название: <strong>{{ framework.name }}</strong></p>
-    <p>Версия: <strong>{{ framework.version }}</strong> </p>
+    <p>Название: <strong>{{ name }}</strong></p>
+    <p>Версия: <strong>{{ version }}</strong> </p>
     <button class="btn" @click="change">Изменить</button>
   </div>
  </div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { ref, reactive } from 'vue'
+import { ref, reactive, toRefs } from 'vue'
 
 export default {
 setup() {
@@ -33,12 +33,12 @@ function changeInfo() {
  }
 
 return {
-  // name,
-  // version,
-  // name: framework.value.name,
-  // version: framework.value.version,
+ 
+  // name: framework.name,
+  //  version: framework.version,
+  ...toRefs(framework),
+  framework: framework, 
   change: changeInfo,
-  framework: framework 
 }
 }
 }
