@@ -6,6 +6,7 @@
 </template>
 
 <script>
+ import { computed } from 'vue'
 
 export default {
 
@@ -13,10 +14,12 @@ export default {
         'name', 
         'version'
     ],
-    computed: {
-        doubleVersion() {
-            return this.version * 2
+    setup(props) {
+        return {
+           doubleVersion: computed(() => props.version * 2)
+ 
         }
+         
     }
 
 }
