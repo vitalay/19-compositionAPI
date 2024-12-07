@@ -1,4 +1,6 @@
 <template>
+
+
   <header class="navbar">
     <strong>Composition API</strong>
     <ul class="navbar-menu">

@@ -1,6 +1,12 @@
 <template>
 
-   
+<app-alert 
+    title="Работаем с Composition API"
+     type="danger"
+      v-if="alert"
+      @close="close"
+      ></app-alert>
+
     <div class="card">
       <h1>Vue Composition API</h1>
       <small>data, computed, methods, watch </small>
@@ -10,6 +16,7 @@
       </div>
   
       <button class="btn" @click="change">Изменить</button>
+      <button class="btn danger" @click="toggle">alert</button>
     </div>
   
     <Framvorkinfo 
@@ -28,6 +35,7 @@
 
 <script>
 import Framvorkinfo from '../Framvorkinfo.vue';
+import AppAlert from './AppAlert.vue';
 import {
    ref,
   reactive,
@@ -55,8 +63,15 @@ const name = ref( 'VueJS')
 const version = ref( 100)
 const textInput = ref(null)
 const ferstName = ref('')
+const alert = ref(false);
 
+const toggle = () => {
+  alert.value = !alert.value;
+};
 
+const close = () => {
+  alert.value = false;
+}
 
 const framework = reactive({
   name: 'VueJS',
@@ -99,10 +114,13 @@ provide('version', version)
 return {
 change: changeInfo,
 ferstName,
-changeVersion
+changeVersion,
+alert,
+toggle,
+close
 }
 },
-components: { Framvorkinfo },
+components: { Framvorkinfo, AppAlert },
 
 }
  
