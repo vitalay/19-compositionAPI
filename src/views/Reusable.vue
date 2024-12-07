@@ -23,7 +23,7 @@ import { useAlert } from '@/use/alert';
   export default {
     setup() {
         useAlert();
-      const { alert, toggle, close } = useAlert();
+      //const { alert, toggle, close } = useAlert();
       
       const router = useRouter();
       const route = useRoute();
@@ -34,10 +34,10 @@ import { useAlert } from '@/use/alert';
   
 
       return {
-        alert,
+       
         navigate,
-        toggle,
-        close
+        ...useAlert(true),
+       
       };
     },
     components: { AppAlert },
