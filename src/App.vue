@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import { ref, reactive, toRefs, isRef, isReactive, computed } from 'vue'
+import { ref, reactive, toRefs, isRef, isReactive, computed, watch } from 'vue'
 
 export default {
 setup() {
 const name = ref( 'VueJS')
-const version = ref( 3)
+const version = ref( 100)
 
 
 
@@ -27,13 +27,19 @@ const framework = reactive({
   version: 3
 })
 
-const doubleVersion = computed(() => {
-  return version.value * 2
-})
+const doubleVersion = computed(() => version.value * 2)
+
+watch ([doubleVersion, name], (newValues, oldValues) => {
+  console.log('new version', newValues[0]),
+  console.log('new name', newValues[1]),
+  console.log('old version', oldValues[0]),
+  console.log('old name', oldValues[1])
+
+}) 
 
 function changeInfo() {
 name.value = 'Vue JS !'
-version.value = 42
+version.value = 150
 
  //framework.name = 'Vue JS !'
  //framework.version = 42
