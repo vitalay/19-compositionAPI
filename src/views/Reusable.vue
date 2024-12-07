@@ -1,13 +1,33 @@
 <template>
-    <div class="card">
-        <h2>Переиспользование</h2>
-        <button class="btn-primary">Показать сообщение</button>
-        <button class="btn">перейти на главную</button>
-    </div>
+  <div class="card">
+    <h2>Переиспользование</h2>
+    <button class="btn-primary">Показать сообщение</button>
+    <button class="btn" @click="navigate">перейти на главную</button>
+  </div>
 </template>
 
 <script>
+import { useRouter, useRoute } from 'vue-router';
+export default {
+  setup() {
+    const router = useRouter();
+    const route = useRoute();
 
+    console.log(route.path)
+
+
+const navigate = () => {
+    router.push('/')
+}
+
+    return {
+        navigate,
+
+
+    };
+  },
+  
+};
 </script>
 
 <style scoped>
@@ -26,9 +46,9 @@ h2 {
 }
 
 .btn-primary {
-    width: 100%;
-    height: 40px;
-    margin: 10px;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
   background-color: #4caf50;
   color: #fff;
   padding: 10px 20px;
@@ -44,10 +64,10 @@ h2 {
 }
 
 .btn {
-    width: 100%;
-    height: 40px;
-    margin: 10px;
-    background-color: #4caf50;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+  background-color: #4caf50;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -60,5 +80,4 @@ h2 {
 .btn:hover {
   background-color: #df8a13;
 }
-
 </style>
