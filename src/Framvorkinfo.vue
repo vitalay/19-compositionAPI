@@ -35,3 +35,40 @@ export default {
 
 }
 </script>
+
+<style scoped>
+
+card {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.card p {
+  margin: 0 0 10px;
+}
+
+.card strong {
+  color: #333;
+}
+
+.btn {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+
+</style>
