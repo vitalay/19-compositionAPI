@@ -15,7 +15,12 @@
   :name="name"
   :version="version"
   @change-version="changeVersion"
-  />
+  class="test-fpom-app"
+  >
+  <template #footer>
+    <p>Все права защищены</p>
+  </template>
+</Framvorkinfo>
 
 
  </div>
