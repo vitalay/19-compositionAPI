@@ -6,6 +6,10 @@
     <hr>
     <p>Название: <strong>{{ name }}</strong></p>
     <p>Версия: <strong>{{ version }} ({{ doubleVersion }})</strong> </p>
+    <div class="form-control">
+      <input type="text" ref="textInput" >
+    </div>
+
     <button class="btn" @click="change">Изменить</button>
   </div>
  </div>
@@ -19,6 +23,7 @@ export default {
 setup() {
 const name = ref( 'VueJS')
 const version = ref( 100)
+const textInput = ref(null)
 
 
 
@@ -38,8 +43,10 @@ watch ([doubleVersion, name], (newValues, oldValues) => {
 }) 
 
 function changeInfo() {
+
 name.value = 'Vue JS !'
 version.value = 150
+console.log(textInput.value.value)
 
  //framework.name = 'Vue JS !'
  //framework.version = 42
@@ -50,7 +57,8 @@ return {
 name: name,
 version: version,
 change: changeInfo,
-doubleVersion
+doubleVersion,
+textInput
 }
 }
 }
