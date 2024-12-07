@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { ref, reactive, toRefs, isRef, isReactive, computed, watch } from 'vue'
+import { ref, reactive, toRefs, isRef, isReactive, computed, watch, provide } from 'vue'
 import Framvorkinfo from './Framvorkinfo.vue';
 export default {
 
@@ -72,16 +72,11 @@ function changeVersion(number) {
 
 }
 
+provide('name', name)
+provide('version', version)
+
 return {
-  name, 
-  version,
- 
- 
-//name: name,
-//version: version,
 change: changeInfo,
-//doubleVersion,
-//textInput,
 ferstName,
 changeVersion
 }
