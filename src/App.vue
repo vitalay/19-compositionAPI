@@ -10,6 +10,9 @@
       <li>
         <router-link to="/reusable">Переиспользование</router-link>
       </li>
+      <li>
+        <router-link to="/vuex">Vuex</router-link>
+      </li>
     </ul>
   </header>
   <div class="container wide-nav">
