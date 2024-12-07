@@ -8,7 +8,7 @@
       ></app-alert>
 
     <div class="card">
-      <h1>Vue Composition API</h1>
+      <h1>Vue Composition Api</h1>
       <small>data, computed, methods, watch </small>
       <div class="form-control">
         <input type="text" v-model="ferstName">
